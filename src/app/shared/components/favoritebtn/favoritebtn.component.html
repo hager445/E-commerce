@@ -1,0 +1,10 @@
+<span
+  [id]="productId"
+  [class]="{
+    'text-mainColor': id().includes(productId),
+
+    'text-black': !id().includes(productId)
+  }"
+  (click)="addToWishlist(productId, $event); action($event)"
+  class="fa-solid fa-heart heartBtn p-0 text-black cursor-pointer"
+></span>

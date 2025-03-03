@@ -1,0 +1,41 @@
+<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  @for (product of products; track product._id) {
+  <div
+    [routerLink]="['/details', product._id]"
+    class="card border border-gray-100 w-[250px] bg-white mx-auto cursor-pointer"
+    data-aos="fade-up"
+  >
+    <div class="image overflow-hidden h-[250px] relative group">
+      <img class="h-full mx-auto" [src]="product.imageCover" alt="" />
+      <app-addtocart
+        (products)="updateProducts($event)"
+        [fromWishlist]="fromWishlist"
+        [productId]="product._id"
+      ></app-addtocart>
+      <div class="fav flex flex-col gap-3 absolute top-[20px] right-[20px]">
+        @if (!showHeart) {
+        <app-favoritebtn [productId]="product._id"></app-favoritebtn>
+        }
+
+        <span
+          class="w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-black"
+          ><i class="fa-regular fa-eye"></i
+        ></span>
+      </div>
+    </div>
+
+    <div class="p-5">
+      <a>
+        <h5 class="mb-2 text-sm font-semibold text-black">
+          {{ product.title | trim : 2 }}
+        </h5>
+      </a>
+      <div class="flex justify-between text-sm">
+        <span class="price text-mainColor">{{ product.price | currency }}</span>
+        <span class="rating flex gap-1"> </span>
+        <span class="shop-times text-gray-500">({{ product.sold }})</span>
+      </div>
+    </div>
+  </div>
+  }
+</div>

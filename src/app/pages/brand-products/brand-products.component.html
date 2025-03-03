@@ -1,0 +1,16 @@
+<section class="show-products" data-aos="fade-up">
+  <h2
+    class="text-mainColor font-bold w-fit ms-10 relative text-lg before:left-[-20px] before:content[''] before:bg-mainColor before:w-[10px] before:h-[100%] before:absolute before:top-0"
+  >
+    {{
+      filteredProducts().length !== 0 ? filteredProducts()[0].brand.name : ""
+    }}
+    Products
+  </h2>
+  <p class="text-2xl font-bold text-black ms-5 my-6">Explore Our Products</p>
+  <div class="container mt-32">
+    <app-reusableproducts
+      [products]="filteredProducts()"
+    ></app-reusableproducts>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+.middle-list .active{
+    position: relative;
+    
+    &::after{
+        content: '';
+        bottom: 0;
+        position: absolute;
+        background-color: black;
+        width: 70%;
+        height: 1px;
+        left: 15%;
+    }
+}

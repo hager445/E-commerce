@@ -1,0 +1,61 @@
+<h2 class="text-2xl font-bold">Billing Details ..</h2>
+<form class="mt-4" [formGroup]="billingDetails" (ngSubmit)="sendUserDetails()">
+  <div class="relative z-0 w-full mb-5 group">
+    <textarea
+      formControlName="details"
+      type="textarea"
+      name="text-detais"
+      id="text-detais"
+      class="block py-2.5 px-0 w-full text-sm text-gray-700 bg-transparent border-0 border-b border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-mainColor peer"
+      placeholder=" "
+      required
+    ></textarea>
+    <label
+      for="text-detais"
+      class="peer-focus:font-medium absolute text-[12px] text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-mainColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >User Details</label
+    >
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      formControlName="phone"
+      type="tel"
+      name="phone"
+      id="phone"
+      class="block py-2.5 px-0 w-full text-sm text-gray-700 bg-transparent border-0 border-b border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-mainColor peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="phone"
+      class="peer-focus:font-medium absolute text-[12px] text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-mainColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >Phone</label
+    >
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      formControlName="city"
+      type="tel"
+      name="city"
+      id="city"
+      class="block py-2.5 px-0 w-full text-sm text-gray-700 bg-transparent border-0 border-b border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-mainColor peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="city"
+      class="peer-focus:font-medium absolute text-[12px] text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-mainColor peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >City</label
+    >
+  </div>
+
+  <button
+    type="submit"
+    class="text-white disabled:bg-zinc-700 bg-mainColor hover:bg-opacity-70 focus:outline-none font-medium rounded-sm text-sm w-full px-5 py-2.5 text-center"
+  >
+    Place Order @if (isLoading) {<i
+      class="fa-solid fa-spinner fa-spin-pulse"
+    ></i
+    >}
+  </button>
+</form>

@@ -1,0 +1,35 @@
+:host ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center; /* توسيط الأزرار */
+    gap: 10px; /* تباعد بين الأزرار */
+  }
+  
+  :host ::ng-deep .ngx-pagination li.small-screen{
+    display: none;
+  }
+ :host ::ng-deep .ngx-pagination li {
+    list-style: none;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ :host ::ng-deep .ngx-pagination .current {
+    background-color:#DB4444; /* لون مميز للزر النشط */
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+:host ::ng-deep .ngx-pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #333;
+    transition: 0.3s;
+  }
+  
+ :host ::ng-deep .ngx-pagination a:hover {
+    background-color: #ddd;
+  }
+  

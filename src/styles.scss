@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+    --main-color: #DB4444;
+}
+.transition-effect {
+    @apply transition-all duration-300;
+}
+.underline-hover {
+    @apply w-[0%] content-[''] bg-black h-[1px] absolute left-0 bottom-0 ;
+}
+.main-border {
+    @apply border-2 border-mainColor  ;
+}

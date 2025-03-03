@@ -1,0 +1,246 @@
+<section
+  class="flex items-start justify-between flex-col sm:flex-row"
+  data-aos="fade-up"
+>
+  <div class="category-list sm:min-h-[400px] h-fit sm:w-[30%] w-[100%]">
+    <!-- Sidebar -->
+    <aside class="h-full bg-transparent px-4">
+      <ul
+        class="flex justify-between items-start flex-wrap sm:flex-col border-s-[1px] sm:border-s-0 border-e-[1px] border-gray-200"
+      >
+        @for(category of categories; track category._id){
+        <li class="mb-2">
+          <a
+            [routerLink]="['/categories', category._id]"
+            class="block relative px-4 py-1 text-black text-[13px]"
+            >{{ category.name }}</a
+          >
+        </li>
+        }
+      </ul>
+    </aside>
+  </div>
+  <div
+    class="static-slider xl:h-[350px] md:h-[300px] h-[290px] w-[100%] sm:w-[70%] bg-black mb-10"
+  >
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide>
+        <div class="slider flex justify-between items-center w-fit p-10">
+          <div class="info">
+            <div class="flex items-center gap-4">
+              <div class="apple-logo w-[10%]">
+                <img
+                  class="w-[100%] block"
+                  src="/imgs/1200px-Apple_gray_logo 1.png"
+                  alt=""
+                />
+              </div>
+              <span class="text-[12px] text-gray-50">iPhone 14 Series</span>
+            </div>
+            <h1 class="md:text-3xl text-xl text-white my-5">
+              Up to 10 off Voucher
+            </h1>
+            <a
+              routerLink="/products"
+              class="text-white text-[13px] underline cursor-pointer"
+              >Shop Now <i class="fa-solid fa-arrow-right ms-3"></i
+            ></a>
+          </div>
+          <div class="image w-[40%]">
+            <img
+              class="w-[100%] text-center"
+              src="/imgs/hero_endframe__cvklg0xk3w6e_large 2.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="slider flex justify-between items-center w-fit p-10">
+          <div class="info">
+            <span class="text-[12px] text-gray-50"
+              >Enhance Your Music Experience</span
+            >
+
+            <h1 class="md:text-3xl text-xl text-white my-5">
+              Up to 10 off Voucher
+            </h1>
+            <a
+              routerLink="/products"
+              class="text-white text-[13px] underline cursor-pointer"
+              >Shop Now <i class="fa-solid fa-arrow-right ms-3"></i
+            ></a>
+          </div>
+          <div class="image w-[40%]">
+            <img
+              class="w-[300px] text-center"
+              src="/imgs/JBL_BOOMBOX_2_HERO_020_x1 (1) 1.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+</section>
+
+<!-- ================================== -->
+<!-- ============================ categories slider  -->
+<!-- ==========================browse .. -->
+<section class="browse my-10" data-aos="fade-up">
+  <h2
+    class="text-mainColor w-fit ms-10 relative text-lg before:left-[-20px] before:content[''] before:bg-mainColor before:w-[10px] before:h-[100%] before:absolute before:top-0"
+  >
+    Our Categories
+  </h2>
+  <p class="text-2xl text-black ms-5 my-6">Browse By Category</p>
+  <div
+    class="grid max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center"
+  >
+    <div
+      class="category border border-black p-5 flex flex-col justify-center items-center w-[200px] h-[150px] mx-auto hover:bg-mainColor hover:text-white hover:border-mainColor transition-all duration-300 cursor-pointer"
+    >
+      <img src="/imgs/Category-Camera.png" alt="" />
+      <h3 class="text-sm font-normal my-5">Camera</h3>
+    </div>
+    <div
+      class="category border border-black p-5 flex flex-col justify-center items-center w-[200px] h-[150px] mx-auto hover:bg-mainColor hover:text-white hover:border-mainColor transition-all duration-300 cursor-pointer"
+    >
+      <img src="/imgs/Category-Headphone.png" alt="" />
+      <h3 class="text-sm font-normal my-5">Head phone</h3>
+    </div>
+    <div
+      class="category border border-black p-5 flex flex-col justify-center items-center w-[200px] h-[150px] mx-auto hover:bg-mainColor hover:text-white hover:border-mainColor transition-all duration-300 cursor-pointer"
+    >
+      <img src="/imgs/Category-Gamepad.png" alt="" />
+      <h3 class="text-sm font-normal my-5">Game pad</h3>
+    </div>
+    <div
+      class="category border border-black p-5 flex flex-col justify-center items-center w-[200px] h-[150px] mx-auto hover:bg-mainColor hover:text-white hover:border-mainColor transition-all duration-300 cursor-pointer"
+    >
+      <img src="/imgs/Category-Computer.png" alt="" />
+      <h3 class="text-sm font-normal my-5">Computer</h3>
+    </div>
+    <div
+      class="category border border-black p-5 flex flex-col justify-center items-center w-[200px] h-[150px] mx-auto hover:bg-mainColor hover:text-white hover:border-mainColor transition-all duration-300 cursor-pointer"
+    >
+      <img src="/imgs/Category-SmartWatch.png" alt="" />
+      <h3 class="text-sm font-normal my-5">Smart Watch</h3>
+    </div>
+  </div>
+</section>
+<!-- ================================== -->
+<section class="categories-slider my-5 px-7 mx-auto" data-aos="fade-up">
+  <owl-carousel-o [options]="customCategoryOptions">
+    @for (slide of categories; track $index) {
+    <ng-container>
+      <ng-template carouselSlide [id]="slide._id">
+        <div
+          class="image h-[200px] w-[80%] bg-gray-100 flex items-center justify-center mx-auto"
+        >
+          <img
+            class="w-[100px] h-auto object-contain"
+            [src]="changeImages($index)"
+            [alt]="slide.name"
+            [title]="slide.name"
+          />
+        </div>
+      </ng-template>
+    </ng-container>
+    }
+  </owl-carousel-o>
+</section>
+
+<!-- ================ -->
+<section class="show-products" data-aos="fade-up">
+  <h2
+    class="text-mainColor w-fit ms-10 relative text-lg before:left-[-20px] before:content[''] before:bg-mainColor before:w-[10px] before:h-[100%] before:absolute before:top-0"
+  >
+    Our Products
+  </h2>
+  <p class="text-2xl text-black ms-5 my-6">Explore Our Products</p>
+  <div class="container mt-20">
+    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      @for (product of products; track product._id) { @if ($index >= 32) { @let
+      starsCount = product.ratingsAverage;
+
+      <div
+        [routerLink]="['/details', product._id]"
+        class="card border border-gray-100 w-[250px] bg-white mx-auto cursor-pointer"
+      >
+        <div class="image overflow-hidden h-[250px] relative group">
+          <img class="h-full mx-auto" [src]="product.imageCover" alt="" />
+          <app-addtocart [productId]="product._id"></app-addtocart>
+          <div class="fav flex flex-col gap-3 absolute top-[20px] right-[20px]">
+            <app-favoritebtn [productId]="product._id"></app-favoritebtn>
+            <span
+              class="w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-black"
+              ><i class="fa-regular fa-eye"></i
+            ></span>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <a>
+            <h5 class="mb-2 text-sm font-semibold text-black">
+              {{ product.title.split(" ", 2).join(" ") }}
+            </h5>
+          </a>
+          <div class="flex justify-between text-sm">
+            <span class="price text-mainColor">${{ product.price }}</span>
+            <span class="rating flex gap-1">
+              {{ starsCount }}
+            </span>
+            <span class="shop-times text-gray-500">({{ product.sold }})</span>
+          </div>
+        </div>
+      </div>
+      } }
+    </div>
+    <button
+      routerLink="/products"
+      class="px-12 mt-12 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl text-white bg-mainColor hover:bg-transparent hover:text-black transition-effect"
+    >
+      View All Products
+    </button>
+  </div>
+</section>
+<!-- ================ -->
+<section
+  class="mt-32 lg:px-32 px-16"
+  data-aos="fade-up"
+  [attr.data-aos-delay]="1000"
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="card flex flex-col justify-center">
+      <span
+        class="icon border-4 mx-auto border-gray-200 bg-black text-white flex items-center justify-center w-[50px] h-[50px] rounded-full"
+        ><i class="fa-solid fa-caravan"></i
+      ></span>
+      <div class="mx-auto text-center my-5">
+        <h3 class="font-semibold text-sm my-2">FREE AND FAST DELIVERY</h3>
+        <p class="text-[12px]">Free delivery for all orders over $140</p>
+      </div>
+    </div>
+    <div class="card flex flex-col justify-center">
+      <span
+        class="icon border-4 mx-auto border-gray-200 bg-black text-white flex items-center justify-center w-[50px] h-[50px] rounded-full"
+        ><i class="fa-solid fa-headphones"></i
+      ></span>
+      <div class="mx-auto text-center my-5">
+        <h3 class="font-semibold text-sm my-2">24/7 CUSTOMER SERVICE</h3>
+        <p class="text-[12px]">Friendly 24/7 customer support</p>
+      </div>
+    </div>
+    <div class="card flex flex-col justify-center">
+      <span
+        class="icon border-4 mx-auto border-gray-200 bg-black text-white flex items-center justify-center w-[50px] h-[50px] rounded-full"
+        ><i class="fa-solid fa-shield"></i
+      ></span>
+      <div class="mx-auto text-center my-5">
+        <h3 class="font-semibold text-sm my-2">MONEY BACK GUARANTEE</h3>
+        <p class="text-[12px]">We reurn money within 30 days</p>
+      </div>
+    </div>
+  </div>
+</section>

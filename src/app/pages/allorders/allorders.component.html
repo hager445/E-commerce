@@ -1,0 +1,65 @@
+<div class="container mx-auto p-6">
+  <h2
+    class="mb-10 text-mainColor w-fit ms-10 relative text-lg before:left-[-20px] before:content[''] before:bg-mainColor before:w-[10px] before:h-[100%] before:absolute before:top-0"
+  >
+    User Orders
+  </h2>
+
+  <!-- User Information -->
+  <div class="bg-white text-[14px] shadow-lg p-6 rounded-lg mb-6">
+    <h3 class="text-lg text-mainColor font-semibold mb-3">User Information</h3>
+    <p class="my-2"><strong>Name:</strong> {{ allOrders[0].user.name }}</p>
+    <p class="my-2"><strong>Email:</strong> {{ allOrders[0].user.email }}</p>
+    <p class="my-2"><strong>Phone:</strong> {{ allOrders[0].user.phone }}</p>
+    <p class="my-2">
+      <strong>Address:</strong>
+      {{ allOrders[allOrders.length - 1].shippingAddress.city }}
+    </p>
+  </div>
+
+  <!-- Orders List -->
+  <div class="space-y-6">
+    @for (order of allOrders; track order._id) {
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-sm font-semibold">Order ID: {{ order._id }}</h3>
+        <span class="text-sm text-gray-600">{{
+          order.createdAt | date : "medium"
+        }}</span>
+      </div>
+
+      <!-- Order Items -->
+      <div class="border-t pt-4">
+        <h4 class="font-medium mb-3">Order Items</h4>
+        <div class="space-y-3">
+          @for (item of order.cartItems; track item._id) {
+
+          <div class="flex items-center gap-4">
+            <img
+              [src]="item.product.imageCover"
+              alt="Product Image"
+              class="w-16 h-16 object-cover rounded-md"
+            />
+            <div>
+              <p class="font-sm">{{ item.product.title }}</p>
+              <p class="text-[13px] text-gray-600">
+                Quantity: {{ item.count }} | Price: {{ item.price | currency }}
+              </p>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="mt-4 border-t pt-4 flex justify-between">
+        <p class="text-sm font-semibold">Total Price:</p>
+        <p class="text-sm font-bold text-mainColor">
+          {{ order.totalOrderPrice | currency }}
+        </p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

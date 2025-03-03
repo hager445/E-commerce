@@ -1,0 +1,94 @@
+@if (_CartService.cartCount()!==0) {
+<div
+  class="relative overflow-x-auto shadow-md sm:rounded-lg"
+  data-aos="fade-up"
+>
+  <table class="w-full text-sm text-center rtl:text-right text-gray-800">
+    <thead class="text-x uppercase bg-gray-50 text-gray-900">
+      <tr>
+        <th scope="col" class="px-6 py-3">Product</th>
+        <th scope="col" class="px-6 py-3">Price</th>
+        <th scope="col" class="px-6 py-3">Quantity</th>
+        <th scope="col" class="px-6 py-3">Product Count</th>
+        <th scope="col" class="px-6 py-3">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody class="">
+      @for (product of cartProducts; track product.product._id) {
+      <tr
+        class="bg-white border-b border-gray-100 shadow-xl"
+        data-aos="slide-right"
+        [attr.data-aos-delay]="$index * 100"
+      >
+        <th scope="row" class="px-6 py-4 flex gap-4 items-center">
+          <img class="w-[100px]" [src]="product.product.imageCover" alt="" />
+          <span class="font-medium text-gray-900 whitespace-nowrap">{{
+            product.product.title | trim : 3
+          }}</span>
+        </th>
+        <td class="px-6 py-4">{{ product.price | currency }}</td>
+        <td class="px-6 py-4">{{ product.product.quantity }}</td>
+        <td class="px-6 py-4">
+          <div
+            class="flex gap-4 items-center justify-center border-[1px] px-3 py-1 w-fit m-auto"
+          >
+            <span>{{ product.count | number : "2.0" }}</span>
+            <div
+              class="flex flex-col text-[10px] justify-center"
+              (click)="setColored($event)"
+            >
+              <i
+                [id]="product.product._id"
+                #icon
+                (click)="updateCount(product.count + 1, product.product._id)"
+                class="fa-solid fa-chevron-up cursor-pointer icon"
+              ></i>
+              <i
+                [id]="product.product._id"
+                #icon
+                (click)="updateCount(product.count - 1, product.product._id)"
+                class="fa-solid fa-chevron-down cursor-pointer icon"
+              ></i>
+            </div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          {{ product.count * product.price | currency }}
+        </td>
+        <td class="px-6 py-4">
+          <i
+            (click)="deleteItem(product.product._id)"
+            class="fa-solid fa-square-minus text-mainColor text-2xl cursor-pointer"
+          ></i>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="mt-10 flex justify-between items-center" data-aos="fade-up">
+  <button
+    routerLink="/home"
+    class="px-12 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
+  >
+    Return To Shop
+  </button>
+  <button
+    (click)="clearCartFunc()"
+    class="px-12 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
+  >
+    Clear All
+  </button>
+</div>
+<button
+  data-aos="fade-up"
+  [routerLink]="['/billingdetails', cartId]"
+  class="px-12 mt-7 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl text-white bg-mainColor hover:bg-transparent hover:text-black transition-effect"
+>
+  Proceed to Checkout!
+</button>
+}@else{
+<p data-aos="fade-up" class="shadow-2xl py-10 px-20 text-center">
+  Your Cart is Empty!
+</p>
+}

@@ -1,0 +1,17 @@
+<section class="show-products" data-aos="fade-up">
+  <h2
+    class="text-mainColor font-bold w-fit ms-10 relative text-lg before:left-[-20px] before:content[''] before:bg-mainColor before:w-[10px] before:h-[100%] before:absolute before:top-0"
+  >
+    Featured Brands
+  </h2>
+  <p class="text-2xl text-black ms-5 my-6">Explore Our Brands</p>
+
+  <div class="container mx-auto mt-10">
+    <app-reusableproducts [products]="filtered"></app-reusableproducts>
+    @if(filtered.length === 0) {
+    <p class="text-center font-semibold text-[12px] text-black">
+      No Products to show
+    </p>
+    }
+  </div>
+</section>
