@@ -11,10 +11,12 @@ import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 import { CategoriesService } from '../../core/services/categories/categories.service';
 import { FavoritebtnComponent } from "../../shared/components/favoritebtn/favoritebtn.component";
 import { AddtocartComponent } from "../../shared/components/addtocart/addtocart.component";
+import { ArrayPipe } from '../../core/pipes/array.pipe';
+import { NotintegerPipe } from '../../core/pipes/notinteger.pipe';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent],
+  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent , ArrayPipe , NotintegerPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

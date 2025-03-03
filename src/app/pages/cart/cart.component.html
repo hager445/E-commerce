@@ -4,7 +4,7 @@
   data-aos="fade-up"
 >
   <table class="w-full text-sm text-center rtl:text-right text-gray-800">
-    <thead class="text-x uppercase bg-gray-50 text-gray-900">
+    <thead class="text-sm uppercase bg-gray-50 text-gray-900">
       <tr>
         <th scope="col" class="px-6 py-3">Product</th>
         <th scope="col" class="px-6 py-3">Price</th>
@@ -20,7 +20,10 @@
         data-aos="slide-right"
         [attr.data-aos-delay]="$index * 100"
       >
-        <th scope="row" class="px-6 py-4 flex gap-4 items-center">
+        <th
+          scope="row"
+          class="px-6 py-4 flex flex-col lg:flex-row gap-4 items-center"
+        >
           <img class="w-[100px]" [src]="product.product.imageCover" alt="" />
           <span class="font-medium text-gray-900 whitespace-nowrap">{{
             product.product.title | trim : 3
@@ -69,13 +72,13 @@
 <div class="mt-10 flex justify-between items-center" data-aos="fade-up">
   <button
     routerLink="/home"
-    class="px-12 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
+    class="md:px-12 md:py-6 px-6 py-3 border-[1px] border-gray-100 text-[11px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
   >
     Return To Shop
   </button>
   <button
     (click)="clearCartFunc()"
-    class="px-12 py-6 border-[1px] border-gray-100 text-[13px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
+    class="md:px-12 md:py-6 px-6 py-3 border-[1px] border-gray-100 text-[11px] outline-none shadow-xl hover:bg-mainColor hover:text-white transition-effect"
   >
     Clear All
   </button>
