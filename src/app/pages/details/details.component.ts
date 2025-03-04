@@ -5,12 +5,14 @@ import { Iproduct } from '../../shared/interfaces/producs/iproduct';
 import { FavoritebtnComponent } from '../../shared/components/favoritebtn/favoritebtn.component';
 import { AddtocartComponent } from "../../shared/components/addtocart/addtocart.component";
 import { CartService } from '../../core/services/cart/cart.service';
-import { ToastrService } from 'ngx-toastr';
+
 import { Icart } from '../../shared/interfaces/cart/icart';
+import { RatingstarsComponent } from "../../shared/components/ratingstars/ratingstars.component";
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-details',
-  imports: [FavoritebtnComponent, AddtocartComponent],
+  imports: [FavoritebtnComponent, AddtocartComponent, RatingstarsComponent , CurrencyPipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -24,7 +26,7 @@ export class DetailsComponent {
   private readonly _ActivatedRoute = inject(ActivatedRoute);
   private readonly _ProductsService = inject(ProductsService);
   private readonly _CartService = inject(CartService);
-  private readonly _ToastrService = inject(ToastrService);
+
 ngOnInit(): void {
   this._CartService.getLoggedUserCart().subscribe({
     next:(res)=>{
@@ -56,18 +58,10 @@ changeMainImgSource(smallImgSrc:string){
 
 // ===== ====== ============ 
 updateCount(count:number , id:string):void{
-
+if(count < 1) return;
   this._CartService.updateCartProductQuantity(count , id).subscribe({
-    next:(res)=>{
+    next:()=>{
       this.productCount = count;
-      if (res.status == 'success') {
-        
-        if (count < 1) {
-          this._ToastrService.error('This Item has been Deleted!');
-        }
-      }
-     
-      
     }
   })
   }

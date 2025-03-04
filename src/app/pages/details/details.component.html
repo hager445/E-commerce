@@ -1,6 +1,6 @@
 <section class="details mx-4 sm:mx-20 md:mx-40 lg:mx-24 overflow-hidden">
   <div
-    class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
+    class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10 place-items-center"
     data-aos="zoom-in-up"
   >
     <!-- images -->
@@ -11,7 +11,7 @@
         <img
           (click)="changeMainImgSource(img)"
           data-aos="zoom-in-up"
-          class="w-[150px] cursor-pointer"
+          class="w-[100px] cursor-pointer"
           [class]="imageClickedSrc === img ? 'main-border' : ''"
           [src]="img"
           alt=""
@@ -20,7 +20,7 @@
       </div>
       <div class="image-cover">
         <img
-          class="w-full"
+          class="w-[80%] mx-auto"
           data-aos="zoom-in-up"
           [src]="imageClickedSrc ? imageClickedSrc : product.imageCover"
           alt=""
@@ -29,16 +29,21 @@
     </div>
     <!-- desc -->
     <div class="product-info">
-      <h2 class="text-sm font-semibold">{{ product.title }}</h2>
-      <div class="space-x-5 text-[14px] my-3">
-        <span class="rating">Rating : {{ product.ratingsAverage }} </span>
+      <h2 class="text-lg font-semibold">{{ product.title }}</h2>
+      <div class="space-x-5 text-[14px] my-5">
+        <span class="rating"
+          >Rating :
+          <app-ratingstars
+            [ratingAverage]="product.ratingsAverage"
+          ></app-ratingstars>
+        </span>
         <span class="text-zinc-500">(Review{{ product.ratingsQuantity }})</span>
         <span class="text-zinc-500">|</span>
         <span class="text-green-800"> {{ product.quantity }} Instock</span>
       </div>
-      <p class="price text-sm">${{ product.price }}</p>
+      <p class="price text-md text-mainColor">{{ product.price | currency }}</p>
       <p
-        class="desc text-sm text-gray-600 my-3 border-b-[1px] border-gray-800 pb-10"
+        class="desc text-sm text-gray-600 my-3 border-b-[1px] border-gray-400 pb-10"
       >
         {{ product.description }}
       </p>
@@ -46,11 +51,12 @@
         <div
           class="product-quantity text-lg border-[1px] border-gray-400 w-fit rounded-sm"
         >
-          <span
+          <button
             (click)="updateCount(productCount - 1, productId)"
             class="cursor-pointer border-e-[1px] border-gray-400 p-1 w-[50px] h-[50px] inline-flex items-center justify-center"
-            ><i class="fa-solid fa-minus"></i
-          ></span>
+          >
+            <i class="fa-solid fa-minus"></i>
+          </button>
           <span class="px-6">{{ productCount }}</span
           ><span
             (click)="updateCount(productCount + 1, productId)"

@@ -1,0 +1,8 @@
+<span>
+  @for (_ of ratingAverage | array; track $index) {
+  <i class="fa-solid fa-star text-yellow-400"></i>
+  } @if ((ratingAverage | notinteger) !== 0) {
+  <i class="fa-regular fa-star-half-stroke text-yellow-400"></i>
+  }
+  {{ ratingAverage }}
+</span>

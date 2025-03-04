@@ -13,10 +13,11 @@ import { FavoritebtnComponent } from "../../shared/components/favoritebtn/favori
 import { AddtocartComponent } from "../../shared/components/addtocart/addtocart.component";
 import { ArrayPipe } from '../../core/pipes/array.pipe';
 import { NotintegerPipe } from '../../core/pipes/notinteger.pipe';
+import { RatingstarsComponent } from "../../shared/components/ratingstars/ratingstars.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent , ArrayPipe , NotintegerPipe],
+  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent, ArrayPipe, NotintegerPipe, RatingstarsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

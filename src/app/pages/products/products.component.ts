@@ -9,10 +9,12 @@ import { FavoritebtnComponent } from "../../shared/components/favoritebtn/favori
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ArrayPipe } from '../../core/pipes/array.pipe';
 import { NotintegerPipe } from '../../core/pipes/notinteger.pipe';
+import { RatingstarsComponent } from '../../shared/components/ratingstars/ratingstars.component';
 
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, TrimPipe, FavoritebtnComponent , NgxPaginationModule, ArrayPipe , NotintegerPipe ],
+  imports: [RouterLink, TrimPipe, FavoritebtnComponent , NgxPaginationModule
+    , RatingstarsComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
