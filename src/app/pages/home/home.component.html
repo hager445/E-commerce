@@ -161,8 +161,7 @@
   <p class="text-2xl text-black ms-5 my-6">Explore Our Products</p>
   <div class="container mt-20">
     <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      @for (product of products; track product._id) { @if ($index >= 32) { @let
-      starsCount = product.ratingsAverage;
+      @for (product of products; track product._id) { @if ($index >= 32) {
 
       <div
         [routerLink]="['/details', product._id]"

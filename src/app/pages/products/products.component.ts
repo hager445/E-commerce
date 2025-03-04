@@ -6,13 +6,13 @@ import { NgFor, ViewportScroller } from '@angular/common';
 import { TrimPipe } from '../../core/pipes/trim.pipe';
 import { ProdctslogicService } from '../../core/services/logic/prodctslogic.service';
 import { FavoritebtnComponent } from "../../shared/components/favoritebtn/favoritebtn.component";
-import { NgxPaginationModule, PaginatePipe } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ArrayPipe } from '../../core/pipes/array.pipe';
 import { NotintegerPipe } from '../../core/pipes/notinteger.pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, TrimPipe, FavoritebtnComponent , NgxPaginationModule, NgFor, ArrayPipe , NotintegerPipe ],
+  imports: [RouterLink, TrimPipe, FavoritebtnComponent , NgxPaginationModule, ArrayPipe , NotintegerPipe ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
