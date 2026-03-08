@@ -17,7 +17,7 @@ import { RatingstarsComponent } from "../../shared/components/ratingstars/rating
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent, ArrayPipe, NotintegerPipe, RatingstarsComponent],
+  imports: [CarouselModule, RouterLink, FavoritebtnComponent, AddtocartComponent, RatingstarsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

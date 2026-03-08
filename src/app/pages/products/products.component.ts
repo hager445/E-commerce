@@ -2,13 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ProductsService } from '../../core/services/products/products.service';
 import { Iproduct } from '../../shared/interfaces/producs/iproduct';
 import { RouterLink } from '@angular/router';
-import { NgFor, ViewportScroller } from '@angular/common';
+import {  ViewportScroller } from '@angular/common';
 import { TrimPipe } from '../../core/pipes/trim.pipe';
 import { ProdctslogicService } from '../../core/services/logic/prodctslogic.service';
 import { FavoritebtnComponent } from "../../shared/components/favoritebtn/favoritebtn.component";
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ArrayPipe } from '../../core/pipes/array.pipe';
-import { NotintegerPipe } from '../../core/pipes/notinteger.pipe';
+
 import { RatingstarsComponent } from '../../shared/components/ratingstars/ratingstars.component';
 
 @Component({
