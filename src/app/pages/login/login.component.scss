@@ -1,0 +1,155 @@
+// =============================================
+// LOGIN PAGE - Responsive SCSS
+// =============================================
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  // Reduce heavy px-36 padding on smaller screens
+  &.px-36 {
+    @media (max-width: 1280px) {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+
+    @media (max-width: 1024px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+// ── GRID LAYOUT ──
+.grid {
+  width: 100%;
+
+  @media (max-width: 640px) {
+    // Stack image on top, form below
+    grid-template-columns: 1fr !important;
+    place-items: center !important;
+  }
+}
+
+// ── LEFT IMAGE ──
+.image {
+  @media (max-width: 1024px) {
+    width: 90% !important;
+  }
+
+  @media (max-width: 768px) {
+    width: 75% !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 70% !important;
+    margin-bottom: 2rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ── RIGHT FORM PANEL ──
+.info {
+  @media (max-width: 1024px) {
+    width: 90% !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  // Page title
+  h2 {
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  // Subtitle
+  span {
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+}
+
+// ── FORM ──
+form {
+  @media (max-width: 480px) {
+    margin-top: 1rem;
+  }
+
+  // Input fields
+  .group {
+    input {
+      @media (max-width: 480px) {
+        font-size: 13px;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    label {
+      @media (max-width: 480px) {
+        font-size: 11px;
+      }
+    }
+  }
+
+  // Error alert box
+  .bg-red-50 {
+    @media (max-width: 480px) {
+      padding: 0.6rem 0.8rem;
+      font-size: 11px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  // Submit button
+  button[type="submit"] {
+    @media (max-width: 480px) {
+      font-size: 13px;
+      padding: 0.6rem 1rem;
+    }
+  }
+
+  // Forgot password link
+  a {
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+
+  // General error message
+  span.block {
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+}

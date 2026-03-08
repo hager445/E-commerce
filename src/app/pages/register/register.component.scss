@@ -1,0 +1,159 @@
+// =============================================
+// REGISTER PAGE - Responsive SCSS
+// =============================================
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+// ── GRID LAYOUT ──
+.grid {
+  width: 100%;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr !important;
+    place-items: center !important;
+  }
+}
+
+// ── LEFT IMAGE ──
+.image {
+  @media (max-width: 1024px) {
+    width: 90% !important;
+  }
+
+  @media (max-width: 768px) {
+    width: 75% !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 60% !important;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// ── RIGHT FORM PANEL ──
+.info {
+  @media (max-width: 1024px) {
+    width: 95% !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  // Page title
+  h2 {
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  // Subtitle
+  & > span {
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+}
+
+// ── FORM ──
+form {
+  @media (max-width: 480px) {
+    margin-top: 0.8rem;
+  }
+
+  // All input field groups
+  .group {
+    @media (max-width: 480px) {
+      margin-bottom: 0.8rem !important;
+    }
+
+    input {
+      @media (max-width: 480px) {
+        font-size: 13px;
+        padding-bottom: 0.4rem;
+      }
+    }
+
+    label {
+      @media (max-width: 480px) {
+        font-size: 11px;
+      }
+    }
+  }
+
+  // Error alert boxes
+  .bg-red-50 {
+    @media (max-width: 768px) {
+      padding: 0.7rem 1rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.5rem 0.7rem;
+      font-size: 11px;
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+
+      svg {
+        width: 13px;
+        height: 13px;
+        margin-right: 0.4rem;
+      }
+
+      // Password requirements list
+      ul li {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      p {
+        font-size: 11px;
+      }
+    }
+  }
+
+  // Submit button
+  button[type="submit"] {
+    @media (max-width: 480px) {
+      font-size: 13px;
+      padding: 0.6rem 1rem;
+    }
+  }
+
+  // "Already have account?" line
+  span.block {
+    @media (max-width: 480px) {
+      font-size: 13px;
+      margin-top: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    a {
+      @media (max-width: 480px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  // General error message
+  span.text-red-950 {
+    @media (max-width: 480px) {
+      font-size: 12px;
+    }
+  }
+}
