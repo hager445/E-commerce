@@ -9,45 +9,52 @@
     <div
       class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-10 overflow-hidden"
     >
-      @for (product of products | paginate: { itemsPerPage: itemsPerPage,
-      currentPage: page };track product._id){
-      <div
-        data-aos="fade-up"
-        [routerLink]="['/details', product._id]"
-        class="card border border-gray-100 w-[250px] bg-white mx-auto cursor-pointer"
-      >
-        <div class="image overflow-hidden h-[250px] relative group">
-          <img class="h-full mx-auto" [src]="product.imageCover" alt="" />
-          <button
-            (click)="addProduct(product._id); action($event)"
-            class="text-white opacity-0 transition-all duration-500 bg-black w-full text-sm py-2 px-8 absolute group-hover:opacity-100 group-hover:bottom-0 bottom-[-100%] mx-auto"
-          >
-            Add to cart
-          </button>
-          <div class="fav flex flex-col gap-3 absolute top-[20px] right-[20px]">
-            <app-favoritebtn [productId]="product._id"></app-favoritebtn>
-            <span
-              class="w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-black"
-              ><i class="fa-regular fa-eye"></i
-            ></span>
+      @for (
+        product of products
+          | paginate: { itemsPerPage: itemsPerPage, currentPage: page };
+        track product._id
+      ) {
+        <div
+          data-aos="fade-up"
+          [routerLink]="['/details', product._id]"
+          class="card border border-gray-100 w-[250px] bg-white mx-auto cursor-pointer"
+        >
+          <div class="image overflow-hidden h-[250px] relative group">
+            <img class="h-full mx-auto" [src]="product.imageCover" alt="" />
+            <button
+              (click)="addProduct(product._id); action($event)"
+              class="text-white opacity-0 transition-all duration-500 bg-black w-full text-sm py-2 px-8 absolute group-hover:opacity-100 group-hover:bottom-0 bottom-[-100%] mx-auto"
+            >
+              Add to cart
+            </button>
+            <div
+              class="fav flex flex-col gap-3 absolute top-[20px] right-[20px]"
+            >
+              <app-favoritebtn [productId]="product._id"></app-favoritebtn>
+              <span
+                class="w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-black"
+                ><i class="fa-regular fa-eye"></i
+              ></span>
+            </div>
           </div>
-        </div>
 
-        <div class="p-5">
-          <a class="flex justify-between">
-            <h5 class="mb-2 text-sm font-semibold text-black inline-block">
-              {{ product.title | trim : 2 }}
-            </h5>
-            <span class="price text-mainColor">${{ product.price }}</span>
-          </a>
-          <div class="flex justify-between flex-wrap text-sm">
-            <app-ratingstars
-              [ratingAverage]="product.ratingsAverage"
-            ></app-ratingstars>
-            <span class="shop-times text-gray-500">({{ product.sold }})</span>
+          <div class="p-5">
+            <a class="flex justify-between">
+              <h5 class="mb-2 text-sm font-semibold text-black inline-block">
+                {{ product.title | trim: 2 }}
+              </h5>
+              <span class="price text-mainColor">${{ product.price }}</span>
+            </a>
+            <div class="flex justify-between flex-wrap text-sm">
+              <app-ratingstars
+                [ratingAverage]="product.ratingsAverage"
+              ></app-ratingstars>
+              <!-- <span class="shop-times text-gray-500"
+                >({{ product.sold.toFixed(2) }})</span
+              > -->
+            </div>
           </div>
         </div>
-      </div>
       }
     </div>
     <pagination-controls
